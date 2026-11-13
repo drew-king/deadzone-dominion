@@ -1,0 +1,8 @@
+{
+  "rojo.projectFile": "${workspaceFolder}/default.project.json",
+  "Lua.diagnostics.globals": ["game", "workspace", "script", "plugin", "Enum", "Instance", "Vector3", "CFrame", "Color3", "UDim2", "task", "require", "warn", "typeof"],
+  "editor.formatOnSave": false,
+  "files.associations": {
+    "*.lua": "lua"
+  }
+}
