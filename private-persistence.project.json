@@ -1,0 +1,21 @@
+{
+  "name": "Deadzone Dominion Persistence QA",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "PersistenceQA": {
+        "$className": "Folder",
+        "ProfileStore": { "$path": "src/server/ProfileStore.luau" },
+        "AlphaProfileAdapter": { "$path": "src/server/AlphaProfileAdapter.luau" }
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": {
+        "$className": "Folder",
+        "PetConfig": { "$path": "src/shared/PetConfig.luau" }
+      }
+    }
+  }
+}

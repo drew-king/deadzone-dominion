@@ -1,0 +1,9 @@
+<roblox version="4">
+  <Item class="MeshPart" referent="Mesh">
+    <Properties>
+      <string name="Name">ReactorBeacon</string>
+      <Vector3 name="InitialSize"><X>4.98894</X><Y>5.65</Y><Z>4.98894</Z></Vector3>
+      <Content name="MeshId"><url>rbxassetid://96904487805669</url></Content>
+    </Properties>
+  </Item>
+</roblox>

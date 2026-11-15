@@ -1,0 +1,20 @@
+# Phase 14 completion ledger
+
+Baseline `Deadzone-Phase13-Siege-Playtest.rbxl` hash `CE63F308C4EF3037609D16CAC750E5447BC7B605BBD6307E82618AC41FE272A1`. Source, mapped assets, baseline place and project records preserved in `art/rollback/phase14-start-20261115-140446`. Verified saved Dev Hub v7 and the owner export. For future prompts, retrieve latest roadmap and questions before drafting and before execution.
+
+| Milestone | Status | Evidence |
+| --- | --- | --- |
+| Studio and Rojo | Verified on disposable local copy | Existing listener `localhost:34872` served `default.project.json`. Probe appeared in the Edit DataModel after disk creation and disappeared after removal. Exact Phase 13 baseline identified locally as PlaceId 0. The older play session was stopped. Older saved window showed a save prompt and was left open. |
+| Outbreak and siege | Scoped Studio pass | First eligible route spawned at most two enemies in the observed solo run. Walker height was 5.14 studs. Staged close encounter dropped fresh player HP from 100 to 93, then recovered to 96 after retreat. The exact file verified flat ground and no solid overlap at 32 spawn points and all 64 boundary pieces. Visitor ray exclusion and safe gate installation are implemented and still need multiplayer replay. |
+| Floor Two | Scoped exact-file pass | All 24 bay fixtures across eight plots were hidden and noncollidable while locked. On JuggerJigg, bought the factory chain and upper access with an isolated admin wallet grant. All three bays appeared, dispatch reflected a live +55 sale, and the humanoid walked all six waypoints across the new bays. |
+| Shop and UI | Scoped exact-file pass | Opened shop and clicked the featured 44px Auto-Collect button through the desktop interface. Earned 5 Scrap banked with pending 0 after the ordinary starter purchase. Earlier synced copy banked 40. Turning the preview off left the next 55 Scrap pending while the wallet stayed constant. Guaranteed pet, egg roll and ending pet preview returned success on exact-file client/server calls. |
+| Exact package | Studio reopened and booted | `Deadzone-Phase14-Outbreak-Playtest.rbxl` SHA-256 `BDF4930C4E4F22D953466E4F59BE49B66B46BFB238A353F5EC5EE60AB01BC7B4`. PlaceId 0 and no startup errors. |
+| Dev Hub | Unpublished version verified | Version 8, source `88a4a4e795996c7a14e02b5e05e8453293ff89f9`, deployment ID absent. |
+
+Owner decisions. One to two threats on the first exposed route, income and cosmetic premium pets, and Auto-Collect first.
+
+Review scores. Research 8.6 and 8.5. Agent 4 initial scores 7.5, 6, 7.5, 6.5 and 6. Exact-file regrade scored engagement 8, retention potential 7, cleanliness 8, build quality 8 and test evidence 7. Agent 5 rated the initial evidence review 8 and initial implementation evidence 6. Acceptance is open.
+
+Next gates. Replay all first-boundary encounters and repeat waves, two-client PvE/PvP with beginner and veteran profiles, all six archetypes and defenses, safe gate commissioning, paid repair and siege retry, rotated full-refinery traversal, phone and controller UI, power and save regressions. Verify Factory Sprint with overlapping speed effects. `/e dance` chat activation remains open. Live Marketplace product IDs, PolicyService gating, durable receipt handling and owner approval are required before enabling Robux checkout. Finish bespoke model and icon coverage beyond the current pass cards and procedural pieces. The Dev Hub local draft was updated.
+
+Research references include the [Elemental Powers Tycoon listing](https://www.roblox.com/games/10253248401/Elemental-Powers-Tycoon), the [Zombie Uprising listing](https://www.roblox.com/games/4972091010/Zombie-Uprising), [Pet Simulator 99's creator update](https://www.biggames.io/post/pet-simulator-99-update-102), [Roblox adaptive design](https://create.roblox.com/docs/production/publishing/adaptive-design), and the [paid random items rules](https://create.roblox.com/docs/production/monetization/paid-random-items). Competitor sales and retention were not measured.

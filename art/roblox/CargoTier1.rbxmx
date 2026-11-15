@@ -1,0 +1,9 @@
+<roblox version="4">
+  <Item class="MeshPart" referent="Mesh">
+    <Properties>
+      <string name="Name">CargoTier1</string>
+      <Vector3 name="InitialSize"><X>1.25648</X><Y>1.16</Y><Z>1.4043</Z></Vector3>
+      <Content name="MeshId"><url>rbxassetid://136737056420895</url></Content>
+    </Properties>
+  </Item>
+</roblox>

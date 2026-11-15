@@ -1,0 +1,32 @@
+return {
+	Warning = 12,
+	Recovery = 26,
+	Interval = 105,
+	Timeout = 95,
+	PlotCap = 5,
+	ServerCap = 25,
+	CoreHealth = 100,
+	Upgrades = {
+		{"SiegeGate", "Breach Gate", 60, "180 HP GATE · REPAIR FOR 12 SCRAP"},
+		{"SiegeTurret", "Watch Turret", 145, "12 DAMAGE PER SECOND WITHIN 30 STUDS"},
+		{"SiegeReinforce", "Reinforced Breach", 250, "GATE HEALTH 180 TO 320"},
+		{"SiegeHeavy", "Heavy Turret", 420, "24 DAMAGE PER SECOND WITHIN 36 STUDS"},
+		{"SiegeShock", "Shock Turret", 675, "SLOWS TARGETS BY 45% FOR 1.6 SECONDS"},
+		{"SiegeAutoRepair", "Repair Relay", 950, "RESTORES 10 HP/SEC BETWEEN WAVES"},
+	},
+	Enemies = {
+		Walker = {Health=42, Speed=5, Damage=8, Reach=3.5, Color=Color3.fromRGB(118,203,92), Scale=1},
+		Runner = {Health=32, Speed=9, Damage=7, Reach=3.5, Color=Color3.fromRGB(255,203,83), Scale=.85},
+		Bruiser = {Health=120, Speed=3.9, Damage=19, Reach=4, Color=Color3.fromRGB(243,142,79), Scale=1.35},
+		Spitter = {Health=69, Speed=4.8, Damage=11, Reach=14, Color=Color3.fromRGB(135,235,168), Scale=1},
+		Saboteur = {Health=80, Speed=6, Damage=22, Reach=3.8, Color=Color3.fromRGB(118,183,255), Scale=1.1},
+		Abomination = {Health=300, Speed=3.4, Damage=32, Reach=5, Color=Color3.fromRGB(220,123,255), Scale=1.7},
+	},
+	Waves = {
+		{"Walker", "Walker", "Walker"},
+		{"Walker", "Runner", "Walker", "Runner"},
+		{"Walker", "Bruiser", "Runner", "Spitter"},
+		{"Runner", "Spitter", "Saboteur", "Bruiser", "Walker"},
+		{"Spitter", "Saboteur", "Abomination", "Runner", "Bruiser"},
+	},
+}

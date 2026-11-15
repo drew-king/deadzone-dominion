@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090c11"><title>Power-Up Tycoon | Dev Hub</title>
+<style>
+:root{color-scheme:dark;--bg:#090c11;--panel:#111720;--line:#252f3d;--muted:#9daaba;--text:#eef4fb;--orange:#ff9f43;--cyan:#52d6d0;--green:#7ddf9b;--max:1160px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 74% -16%,#183035 0,transparent 38%),var(--bg);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text)}a{color:inherit}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}header{border-bottom:1px solid #ffffff12;background:#090c11c9;position:sticky;top:0;backdrop-filter:blur(14px);z-index:5}.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:800;letter-spacing:.04em}.brand b{color:var(--orange)}nav{display:flex;gap:22px;flex-wrap:wrap}nav a{text-decoration:none;color:#b7c2cf;font-size:.9rem}nav a:hover{color:white}.hero{padding:70px 0 54px}.eyebrow{color:var(--cyan);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:750}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:30px;align-items:end}h1{font-size:clamp(2.6rem,6vw,5rem);line-height:.98;letter-spacing:-.055em;margin:18px 0 18px;max-width:790px}.hero p{color:#bac5d1;max-width:650px;font-size:1.12rem}.statusbox{border:1px solid #ffffff18;background:linear-gradient(145deg,#151d25,#10151b);border-radius:18px;padding:22px}.statusbox .label{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.11em}.status{display:inline-flex;align-items:center;gap:8px;margin:9px 0 12px;color:#ffca8b;font-weight:750}.dot{width:9px;height:9px;background:var(--orange);border-radius:50%;box-shadow:0 0 14px #ff9f43aa}.meta{color:var(--muted);font-size:.88rem}.meta strong{color:#e4ecf5;font-weight:600}.section{padding:44px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}h2{font-size:1.65rem;letter-spacing:-.025em;margin:0}h3{margin:0 0 8px;font-size:1.08rem}.sub{color:var(--muted);margin:.35rem 0 0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(145deg,#131a23,#0f141b);border:1px solid var(--line);border-radius:16px;padding:20px}.power{position:relative;overflow:hidden;min-height:210px}.power:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;right:-90px;top:-90px;background:var(--glow);filter:blur(3px);opacity:.13}.tag{display:inline-block;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent),transparent 68%);border-radius:99px;padding:3px 9px;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}.card p{margin:0;color:#b3bfcc;font-size:.94rem}.tiny{font-size:.82rem!important;color:#8291a1!important;margin-top:12px!important}.roadmap{display:grid;gap:12px}.milestone{display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:16px}.m-id{font-weight:800;color:var(--cyan);font-size:.88rem}.m-copy p{font-size:.88rem;margin:4px 0 0;color:var(--muted)}.badge{border:1px solid #334254;color:#aab8c8;border-radius:99px;padding:4px 10px;font-size:.75rem;white-space:nowrap}.badge.active{border-color:#74461e;color:#ffc17e;background:#ff9f4310}.steps{counter-reset:step}.step{display:flex;gap:14px}.step-num{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;color:var(--cyan);background:#52d6d014;border:1px solid #52d6d02c;font-weight:800;font-size:.8rem}.step p{margin:3px 0 0;color:var(--muted);font-size:.9rem}.questions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.question{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:12px;background:#111720;border:1px solid var(--line);font-size:.9rem}.question i{width:8px;height:8px;border-radius:50%;background:var(--orange);margin-top:6px;flex:none}.amend{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:18px}.amend input{width:100%;background:#0b1016;border:1px solid #334154;color:var(--text);padding:12px 14px;border-radius:10px;font:inherit}.btn{border:0;border-radius:10px;background:var(--orange);color:#191008;font-weight:800;padding:11px 16px;cursor:pointer;font:inherit;font-weight:750}.btn.secondary{background:#1b2631;color:#dce7f2;border:1px solid #344253}.btn:hover{filter:brightness(1.08)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.amendments{display:grid;gap:8px;margin-top:14px}.amendment{padding:11px 13px;background:#0d131a;border-radius:10px;border:1px solid var(--line);color:#dce5ee;font-size:.9rem}.note{border-left:3px solid var(--cyan);padding:12px 14px;background:#52d6d00b;color:#afbdca;border-radius:0 10px 10px 0;font-size:.88rem}.note strong{color:#e9f5f4}footer{border-top:1px solid #ffffff12;padding:28px 0 42px;color:#8593a2;font-size:.82rem}.loading{color:var(--muted)}@media(max-width:760px){.hero-grid{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.power{min-height:auto}.questions{grid-template-columns:1fr}.milestone{grid-template-columns:46px 1fr}.badge{grid-column:2;justify-self:start}.nav{height:auto;min-height:68px;padding:12px 0;align-items:flex-start;flex-direction:column;gap:8px}nav{gap:14px}.hero{padding-top:46px}.section{padding:34px 0}.amend{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand">POWER-UP <b>TYCOON</b> <span style="color:#718091;font-weight:600">/ DEV HUB</span></div><nav aria-label="Main navigation"><a href="#powers">Powers</a><a href="#roadmap">Roadmap</a><a href="#start">Start here</a><a href="#decisions">Open decisions</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><div class="hero-grid"><div><div class="eyebrow">Roblox PvP Tycoon · Development control room</div><h1>Build your base.<br>Charge your power.<br><span style="color:var(--orange)">Own the arena.</span></h1><p>Each player grows a personal tycoon, then takes its unique power into a shared PvP fight. This hub tracks the real build from the first Rojo connection through a balanced, playable release.</p></div><aside class="statusbox"><div class="label">Current phase</div><div class="status"><span class="dot"></span><span id="phase">Loading project status…</span></div><div class="meta">Roblox place <strong id="place">—</strong></div><div class="meta">Last roadmap update <strong id="updated">—</strong></div><div class="meta" style="margin-top:8px" id="honest">—</div></aside></div></section>
+<section id="powers" class="section"><div class="section-head"><div><div class="eyebrow">Eight power plots</div><h2>Power roster</h2><p class="sub">Core abilities passed scripted two-client Studio checks. Player matches will inform tuning.</p></div></div><div class="grid3" id="powers-grid"></div></section>
+<section id="roadmap" class="section"><div class="section-head"><div><div class="eyebrow">Milestones · measurable checkpoints</div><h2>Development roadmap</h2></div><span class="meta">Update roadmap.json with each meaningful code change</span></div><div class="roadmap" id="milestones"></div></section>
+<section id="start" class="section"><div class="section-head"><div><div class="eyebrow">The next useful session</div><h2>Start here</h2><p class="sub">Play the Phase 12 candidate locally and record where the next action is unclear.</p></div></div><div class="grid3" id="steps"></div><div class="note" style="margin-top:14px"><a href="art/phase12-gate-comparison.jpg">Eight gate comparisons</a> · <a href="art/phase12-pet-silhouettes.jpg">Pet silhouettes</a> · <a href="art/phase12-boards.jpg">Leaderboard test</a></div></section>
+<section id="decisions" class="section"><div class="section-head"><div><div class="eyebrow">Design questions to settle before tuning</div><h2>Open decisions</h2><p class="sub">Capture amendments below; download the revised roadmap to make them part of the project.</p></div></div><div class="questions" id="questions"></div><form id="amend-form" class="amend"><input id="amend-input" type="text" maxlength="240" placeholder="Add a rule, feature, balance note, or command…" aria-label="New roadmap amendment"><button class="btn" type="submit">Add note</button></form><div class="amendments" id="amendments"></div><div class="actions"><button class="btn secondary" id="download">Download updated roadmap.json</button><button class="btn secondary" id="clear">Clear browser draft</button></div><p class="tiny">Notes are saved in this browser as a draft. Download the JSON and replace the repo's roadmap.json to publish the changes.</p></section>
+<section class="section"><div class="note"><strong>Studio workflow</strong> Rojo live sync was verified locally. Phase 12 gameplay is tested in Studio and persistence in the private Roblox QA place.</div></section>
+</main><footer><div class="wrap">Power-Up Tycoon · private development hub · Roblox place 96511474175721 · Roadmap data is versioned with the project source.</div></footer>
+<script>
+const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let roadmap={};let draft=[];
+async function init(){roadmap={
+  "project": "Power-Up Tycoon",
+  "placeId": 96511474175721,
+  "universeId": 10776289738,
+  "phase": "Phase 15 — Factory and pet playtest",
+  "updated": "2026-11-15",
+  "sync": "verified",
+  "sourceOfTruth": "src/",
+  "note": "Phase 15 expands the conveyor onto Floors Two and Three and adds a 75-space backpack, two pet slots, potions, and new egg tiers. Commerce previews are local. Review and rollout gates remain open.",
+  "powers": [
+    {
+      "name": "JuggerJigg",
+      "type": "Defense",
+      "description": "Stand still and dance to build up to 60 armor. Attacking stops generation."
+    },
+    {
+      "name": "Spam-Him-Up",
+      "type": "Momentum",
+      "description": "Consecutive hits on one opponent grant a five-second speed boost. Rapid weapons require more hits."
+    },
+    {
+      "name": "Double Pop",
+      "type": "Offense",
+      "description": "Two eliminations grant up to 15 doubled damaging hits for five minutes."
+    },
+    {"name":"Rising Sun","type":"Recovery","description":"Survive a lethal hit, transform, and gain brief protection. The ability has a cooldown."},
+    {"name":"SlurperAid","type":"Sustain","description":"Collect bubbles from your recent eliminations to heal 15% of your maximum health."},
+    {"name":"PlopperFizz","type":"Area control","description":"Drop from height to hit nearby opponents on landing."},
+    {"name":"CritShot","type":"Precision","description":"Gain 10% generator income and a 4% critical chance on qualifying shots."},
+    {"name":"PolarBear Kick","type":"Scavenging","description":"Pick up temporary copies of weapons your defeated opponents were holding. A copy has six rounds and you can carry two."}
+  ],
+  "milestones": [
+    {
+      "id": "P6",
+      "title": "Floor One tycoon depth",
+      "status": "in-progress",
+      "done": "At least 20 new meaningful purchases, a larger readable floor, detailed tiered droppers, moving items on a continuous conveyor, and secure Scrap sales at an end-of-line sell block; verify with repeat and multiplayer tests.",
+      "next": "Local candidate built with 25 purchases, cargo sales and a floor overlap fix. Studio acceptance and pacing checks remain open."
+    },
+    {
+      "id": "M0",
+      "title": "Project foundation",
+      "status": "done",
+      "done": "Rojo live sync verified. Initial local Git baseline f91dad7.",
+      "next": "Create the Rojo project and verify a one-file round trip between VS Code and Studio."
+    },
+    {
+      "title": "Eight-plot graybox",
+      "done": "Reactor Crown, eight routes, neutral spawn and plot claims built.",
+      "status": "in-progress",
+      "next": "Phase 1 accepted after all eight routes were timed and separate ownership was confirmed.",
+      "id": "P1"
+    },
+    {
+      "id": "M1",
+      "title": "Tycoon loop",
+      "status": "queued",
+      "done": "Players claim separate plots, earn currency, buy droppers and upgrades, and see progress persist."
+    },
+    {
+      "id": "M2",
+      "title": "Combat sandbox",
+      "status": "queued",
+      "done": "Server-validated weapons, damage, cooldowns, respawns, and a compact PvP arena work with multiple players."
+    },
+    {
+      "id": "M3",
+      "title": "Power prototypes",
+      "status": "queued",
+      "done": "Implement and tune the eight planned powers with clear UI feedback and server-side validation."
+    },
+    {
+      "id": "M4",
+      "title": "Alpha playtest",
+      "status": "queued",
+      "done": "Add to the alpha follow-up prompt: isolated persistence across restart, two-client ownership and power regression, then measure the Floor One journey with the available tester."
+    },
+    {
+      "id": "P7",
+      "title": "Floor Two and rebirth progression",
+      "status": "queued",
+      "done": "Solo Studio verified static layout, stair centerline, Prism Repeater and rebirth. Independent Phase 7 score 8.25/10. Add two-client isolation, rail-edge clearance and natural Floor Two pacing to the alpha follow-up prompt."
+    },
+    {
+      "id": "P8",
+      "title": "Release prep",
+      "status": "in-progress",
+      "next": "Phase 8 independent review scored 8.10/10, including 7 for evidence. Run multiplayer, device, persistence and performance checks before acceptance.",
+      "done": "Add to the release acceptance prompt: first-session timing, two-client regression, persistence, device accessibility, low-end performance, storefront art and rollback."
+    }
+    ,
+    {"id":"P9","title":"Independent upgrade trees","status":"in-progress","next":"Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.","done":"Reveal pads only when their own prerequisites are complete. Separate weapons, production and infrastructure. Keep dropper tiers sequential."},
+    {"id":"P10","title":"Models and visual overhaul","status":"in-progress","next":"Eight named crests, power palettes and original Roblox Part models in the local candidate. Finish custom meshes and compare performance with several active plots.","done":"Build and verify production art, textures, lighting and feedback across both floors and Reactor Crown."},
+    {"id":"P11","title":"Pets and balance","status":"in-progress","next":"Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.","done":"Plan Common through Mythic damage and income pets, earnable paths and a proposed Robux egg with the strongest pets. Cap or normalize competitive damage. Verify odds disclosure and player eligibility before enabling paid eggs."},
+    {"id":"P12","title":"Five-floor expansion and art overhaul","status":"in-progress","next":"Core progression, stair descents, gates, and the collector passed scoped Studio checks. Finish model coverage at player height, unassisted pacing and device profiling.","done":"Five buildable floors, three rebirth unlocks, clear benefits and working gear. Verify multiplayer, art, progression pacing and performance on the local candidate."},
+    {"id":"P13","title":"Tower, Armory and Siege","status":"in-progress","next":"First siege and armory passed scoped Studio tests. Replay later waves, repairs and concurrency.","done":"Full-footprint roofs, selectable earned weapons and plot-local siege."},
+    {"id":"P14","title":"Outbreak, Refinery and Interface","status":"in-progress","next":"Replay the exact local candidate, verify beginner attacks and retreat routes, refinery clearance, phone layout and Studio shop states. Use income and cosmetics for premium pets. Feature Auto-Collect.","done":"Roaming districts, functional and furnished refinery, custom GUI and staged premium shop."},
+    {"id":"P15","title":"Factory expansion, economy and pets","status":"in-progress","next":"Verify full conveyor routes, shared progression pricing, inventory migration, boosts, and desktop/mobile hatching. Owner targets 20 seconds on Floors One and Two, one space per potion stack or pet type, and exactly 1,000 Robux globally for the first extra slot.","done":"Extended factory lines and tiered egg progression."},
+    {"id":"P16","title":"Launch acceptance","status":"planned","next":"Retrieve the latest Dev Hub roadmap and questions before drafting and again before execution. Close playtest, performance, persistence, monetization and owner approval gates.","done":"Verified release candidate and owner-approved deployment plan."}
+  ],
+  "nextSteps": [
+    {
+      "title": "Extend your factory",
+      "detail": "Build Starter Factory, buy both conveyor extensions, construct the refinery line, and send cargo upstairs after unlocking Floor Three."
+    },
+    {
+      "title": "Hatch and manage pets",
+      "detail": "Check odds, use the first free hatch, fill two equip slots, and manage potion stacks in the backpack. Studio previews include Triple Hatch, Auto-Open, and additional equip slots."
+    },
+    {
+      "title": "Review the revised build",
+      "detail": "Complete persistence, device, performance, storefront art and rollback checks, then request a re-score."
+    }
+  ],
+  "decisions": [
+    {
+      "question": "JuggerJigg uses /e dance. Verify chat activation in Studio.",
+      "status": "implementation-pending"
+    },
+    {
+      "question": "Armor amount, duration, cap and refresh are delegated tuning decisions. Record tested settings.",
+      "status": "delegated"
+    },
+    {
+      "question": "Spam-Him-Up uses three consecutive hits. Verify eligibility and the four-second window.",
+      "status": "test-pending"
+    },
+    {
+      "question": "Double Pop spends charges on qualifying hits. Verify a miss preserves the charge.",
+      "status": "test-pending"
+    },
+    {
+      "question": "Keep Scrap, eight plots and legacy saves. Tuning is delegated. Owner chose one to two first-route threats, income and cosmetic premium pets, and Auto-Collect first.",
+      "status": "recorded"
+    }
+  ],
+  "amendments": []
+}
+
+;try{draft=JSON.parse(localStorage.getItem('put-amendments')||'[]')}catch{draft=[]}document.querySelector('#phase').textContent=roadmap.phase;document.querySelector('#place').textContent=roadmap.placeId;document.querySelector('#updated').textContent=roadmap.updated;document.querySelector('#honest').textContent=roadmap.note;document.querySelector('#powers-grid').innerHTML=roadmap.powers.map((p,i)=>`<article class="card power" style="--accent:${['#ffae57','#55d8d1','#d49aff'][i%3]};--glow:${['#ff9f43','#52d6d0','#bb83ff'][i%3]}"><span class="tag">${escapeHtml(p.type)}</span><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description)}</p></article>`).join('');document.querySelector('#milestones').innerHTML=roadmap.milestones.map(m=>`<article class="card milestone"><div class="m-id">${escapeHtml(m.id)}</div><div class="m-copy"><h3>${escapeHtml(m.title)}</h3><p>${escapeHtml(m.status==='in-progress'?m.next:m.done)}</p></div><span class="badge ${m.status==='in-progress'?'active':''}">${escapeHtml(m.status.replace('-',' '))}</span></article>`).join('');document.querySelector('#steps').innerHTML=roadmap.nextSteps.map((s,i)=>`<article class="card step"><span class="step-num">0${i+1}</span><div><h3>${escapeHtml(s.title)}</h3><p>${escapeHtml(s.detail)}</p></div></article>`).join('');document.querySelector('#questions').innerHTML=roadmap.decisions.map(q=>`<div class="question"><i></i><span>${escapeHtml(q.question)}</span></div>`).join('');renderDraft()}
+function renderDraft(){document.querySelector('#amendments').innerHTML=draft.map((a,i)=>`<div class="amendment">${escapeHtml(a)} <button aria-label="Remove note" data-i="${i}" style="float:right;background:none;border:0;color:#92a1b0;cursor:pointer">×</button></div>`).join('');document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{draft.splice(+b.dataset.i,1);saveDraft()})}
+function saveDraft(){localStorage.setItem('put-amendments',JSON.stringify(draft));renderDraft()}
+document.querySelector('#amend-form').addEventListener('submit',e=>{e.preventDefault();const input=document.querySelector('#amend-input');const v=input.value.trim();if(!v)return;draft.push(v);input.value='';saveDraft()});document.querySelector('#clear').onclick=()=>{draft=[];saveDraft()};document.querySelector('#download').onclick=()=>{const out={...roadmap,amendments:[...(roadmap.amendments||[]),...draft]};const blob=new Blob([JSON.stringify(out,null,2)+'\n'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadmap.json';a.click();URL.revokeObjectURL(a.href)};init();
+</script>
+</body></html>

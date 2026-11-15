@@ -1,0 +1,9 @@
+<roblox version="4">
+  <Item class="MeshPart" referent="Mesh">
+    <Properties>
+      <string name="Name">DropperHousing</string>
+      <Vector3 name="InitialSize"><X>5.54328</X><Y>2</Y><Z>2.67926</Z></Vector3>
+      <Content name="MeshId"><url>rbxassetid://112146536942981</url></Content>
+    </Properties>
+  </Item>
+</roblox>

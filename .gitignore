@@ -1,4 +1,9 @@
-/.devhub-checkout/
-/tools/rojo/rojo.exe
+*.rbxl.lock
+*.rbxlx.lock
 *.rbxl
 *.rbxlx
+!builds/Deadzone-Phase15-Factory-Playtest.rbxl
+art/rollback/
+.devhub-checkout/
+tools/rojo/rojo.exe
+.env*

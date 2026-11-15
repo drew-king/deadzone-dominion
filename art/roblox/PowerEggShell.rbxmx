@@ -1,0 +1,9 @@
+<roblox version="4">
+  <Item class="MeshPart" referent="EggShell">
+    <Properties>
+      <string name="Name">PowerEggShell</string>
+      <Vector3 name="InitialSize"><X>1.98288</X><Y>2.59</Y><Z>1.98288</Z></Vector3>
+      <Content name="MeshId"><url>rbxassetid://122522546308019</url></Content>
+    </Properties>
+  </Item>
+</roblox>

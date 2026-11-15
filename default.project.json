@@ -2,6 +2,12 @@
   "name": "deadzone-dominion",
   "tree": {
     "$className": "DataModel",
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "DeadzoneArt": {
+        "$path": "art/roblox"
+      }
+    },
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
       "Shared": {
