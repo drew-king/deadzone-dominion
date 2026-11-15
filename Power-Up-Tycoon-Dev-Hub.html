@@ -19,15 +19,40 @@
 <script>
 const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let roadmap={};let draft=[];
+const approvedFeedback=/* approved-feedback-start */[]/* approved-feedback-end */;
+window.addEventListener('DOMContentLoaded',()=>{
+  if (!approvedFeedback.length) return;
+  const list=document.querySelector('#milestones');
+  const container=document.createElement('div');
+  container.className='roadmap';
+  const heading=document.createElement('h2');
+  heading.textContent='Approved player feedback';
+  container.append(heading);
+  for (const entry of approvedFeedback) {
+    const card=document.createElement('article');
+    card.className='card';
+    const title=document.createElement('h3');
+    const state=document.createElement('p');
+    const impact=document.createElement('p');
+    const acceptance=document.createElement('p');
+    title.textContent=entry.title;
+    state.textContent=[entry.id,entry.status,entry.priority,entry.target].join(' · ');
+    impact.textContent=entry.impact;
+    acceptance.textContent=entry.acceptance;
+    card.append(title,state,impact,acceptance);
+    container.append(card);
+  }
+  list.after(container);
+});
 async function init(){roadmap={
   "project": "Power-Up Tycoon",
   "placeId": 96511474175721,
   "universeId": 10776289738,
-  "phase": "Phase 15 — Factory and pet playtest",
+  "phase": "Phase 16 — Public launch preparation",
   "updated": "2026-11-15",
   "sync": "verified",
   "sourceOfTruth": "src/",
-  "note": "Phase 15 expands the conveyor onto Floors Two and Three and adds a 75-space backpack, two pet slots, potions, and new egg tiers. Commerce previews are local. Review and rollout gates remain open.",
+  "note": "The Roblox alpha is private. Phase 16 prepares durable progress, a repeatable Supporter product and a moderator-approved feedback pipeline. Public launch depends on content rating and launch playtests.",
   "powers": [
     {
       "name": "JuggerJigg",
@@ -117,7 +142,7 @@ async function init(){roadmap={
     {"id":"P13","title":"Tower, Armory and Siege","status":"in-progress","next":"First siege and armory passed scoped Studio tests. Replay later waves, repairs and concurrency.","done":"Full-footprint roofs, selectable earned weapons and plot-local siege."},
     {"id":"P14","title":"Outbreak, Refinery and Interface","status":"in-progress","next":"Replay the exact local candidate, verify beginner attacks and retreat routes, refinery clearance, phone layout and Studio shop states. Use income and cosmetics for premium pets. Feature Auto-Collect.","done":"Roaming districts, functional and furnished refinery, custom GUI and staged premium shop."},
     {"id":"P15","title":"Factory expansion, economy and pets","status":"in-progress","next":"Verify full conveyor routes, shared progression pricing, inventory migration, boosts, and desktop/mobile hatching. Owner targets 20 seconds on Floors One and Two, one space per potion stack or pet type, and exactly 1,000 Robux globally for the first extra slot.","done":"Extended factory lines and tiered egg progression."},
-    {"id":"P16","title":"Launch acceptance","status":"planned","next":"Retrieve the latest Dev Hub roadmap and questions before drafting and again before execution. Close playtest, performance, persistence, monetization and owner approval gates.","done":"Verified release candidate and owner-approved deployment plan."}
+    {"id":"P16","title":"Launch acceptance","status":"in-progress","next":"Complete Roblox content rating, confirm thumbnail placement, replay the exact private build, test persistence and receipt fulfillment, and connect the Discord verification and roadmap bot. Retrieve the newest Hub roadmap and questions before drafting and executing future phases.","done":"Verified release candidate and owner-approved deployment plan."}
   ],
   "nextSteps": [
     {
@@ -161,6 +186,6 @@ async function init(){roadmap={
 ;try{draft=JSON.parse(localStorage.getItem('put-amendments')||'[]')}catch{draft=[]}document.querySelector('#phase').textContent=roadmap.phase;document.querySelector('#place').textContent=roadmap.placeId;document.querySelector('#updated').textContent=roadmap.updated;document.querySelector('#honest').textContent=roadmap.note;document.querySelector('#powers-grid').innerHTML=roadmap.powers.map((p,i)=>`<article class="card power" style="--accent:${['#ffae57','#55d8d1','#d49aff'][i%3]};--glow:${['#ff9f43','#52d6d0','#bb83ff'][i%3]}"><span class="tag">${escapeHtml(p.type)}</span><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description)}</p></article>`).join('');document.querySelector('#milestones').innerHTML=roadmap.milestones.map(m=>`<article class="card milestone"><div class="m-id">${escapeHtml(m.id)}</div><div class="m-copy"><h3>${escapeHtml(m.title)}</h3><p>${escapeHtml(m.status==='in-progress'?m.next:m.done)}</p></div><span class="badge ${m.status==='in-progress'?'active':''}">${escapeHtml(m.status.replace('-',' '))}</span></article>`).join('');document.querySelector('#steps').innerHTML=roadmap.nextSteps.map((s,i)=>`<article class="card step"><span class="step-num">0${i+1}</span><div><h3>${escapeHtml(s.title)}</h3><p>${escapeHtml(s.detail)}</p></div></article>`).join('');document.querySelector('#questions').innerHTML=roadmap.decisions.map(q=>`<div class="question"><i></i><span>${escapeHtml(q.question)}</span></div>`).join('');renderDraft()}
 function renderDraft(){document.querySelector('#amendments').innerHTML=draft.map((a,i)=>`<div class="amendment">${escapeHtml(a)} <button aria-label="Remove note" data-i="${i}" style="float:right;background:none;border:0;color:#92a1b0;cursor:pointer">×</button></div>`).join('');document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{draft.splice(+b.dataset.i,1);saveDraft()})}
 function saveDraft(){localStorage.setItem('put-amendments',JSON.stringify(draft));renderDraft()}
-document.querySelector('#amend-form').addEventListener('submit',e=>{e.preventDefault();const input=document.querySelector('#amend-input');const v=input.value.trim();if(!v)return;draft.push(v);input.value='';saveDraft()});document.querySelector('#clear').onclick=()=>{draft=[];saveDraft()};document.querySelector('#download').onclick=()=>{const out={...roadmap,amendments:[...(roadmap.amendments||[]),...draft]};const blob=new Blob([JSON.stringify(out,null,2)+'\n'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadmap.json';a.click();URL.revokeObjectURL(a.href)};init();
+document.querySelector('#amend-form').addEventListener('submit',e=>{e.preventDefault();const input=document.querySelector('#amend-input');const v=input.value.trim();if(!v)return;draft.push(v);input.value='';saveDraft()});document.querySelector('#clear').onclick=()=>{draft=[];saveDraft()};document.querySelector('#download').onclick=()=>{const out={...roadmap,approvedFeedback,amendments:[...(roadmap.amendments||[]),...draft]};const blob=new Blob([JSON.stringify(out,null,2)+'\n'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadmap.json';a.click();URL.revokeObjectURL(a.href)};init();
 </script>
 </body></html>

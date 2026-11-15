@@ -8,7 +8,7 @@ local Weapons = require(ReplicatedStorage.Shared.CombatConfig).Weapons
 local Powers = {}
 
 function Powers.start(options)
-	local active = RunService:IsStudio() and options.enabled ~= false
+	local active = (RunService:IsStudio() or options.allowLive == true) and options.enabled ~= false
 	local tuning = {}
 	for name, entry in Config do tuning[name] = table.clone(entry) end
 	local tuningRevisions = {}

@@ -4,11 +4,13 @@ local RunService = game:GetService("RunService")
 
 local Adapter = {}
 
-function Adapter.forStudio()
-	if not RunService:IsStudio() or workspace:GetAttribute("DeadzoneAlphaPersistence") ~= true then
-		return nil
-	end
-	local store = DataStoreService:GetDataStore("DeadzoneAlphaProfiles_v1", "StudioOnly")
+function Adapter.forCurrentPlace()
+	local studio = RunService:IsStudio()
+	local launch = require(game.ReplicatedStorage.Shared.SupporterConfig)
+	local release = not studio and game.GameId == launch.UniverseId and game.PlaceId == launch.PlaceId
+	if not release and not (studio and workspace:GetAttribute("DeadzoneAlphaPersistence") == true) then return nil end
+	local store = if release then DataStoreService:GetDataStore("DeadzoneReleaseProfiles_v1")
+		else DataStoreService:GetDataStore("DeadzoneAlphaProfiles_v1", "StudioOnly")
 	local readOptions = Instance.new("DataStoreGetOptions")
 	readOptions.UseCache = false
 	local revisions = {}

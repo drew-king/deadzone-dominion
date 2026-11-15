@@ -1,11 +1,13 @@
 local Players = game:GetService("Players")
 local Shared = game:GetService("ReplicatedStorage"):WaitForChild("Shared")
+local releaseConfig = require(Shared.SupporterConfig)
 local plots, neutralSpawn = require(script.Parent.MapBuilder).build(require(Shared.MapConfig))
 local claims = {}
 local profiles = {}
 local presetSessions = {}
-local adapter = require(script.Parent.AlphaProfileAdapter).forStudio()
+local adapter = require(script.Parent.AlphaProfileAdapter).forCurrentPlace()
 local store = require(script.Parent.ProfileStore).new(adapter)
+require(script.Parent.Supporter).start()
 local function getPlot(player) return claims[player] end
 local powers
 local pets
@@ -52,6 +54,7 @@ local combatAPI = combat.start({
 	end,
 })
 powers = require(script.Parent.Powers).start({
+	allowLive = game.GameId == releaseConfig.UniverseId and game.PlaceId == releaseConfig.PlaceId,
 	getPlot = getPlot,
 	isSparring = isSparring,
 	canAffect = combatAPI.canAffect,

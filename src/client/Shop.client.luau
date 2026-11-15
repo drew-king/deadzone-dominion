@@ -129,6 +129,30 @@ for index, item in require(storage.Shared.PassPreviewConfig) do
 	player:GetAttributeChangedSignal(attribute):Connect(updatePass)
 	updatePass()
 end
+local supporter = require(storage.Shared.SupporterConfig)
+local marketplace = game:GetService("MarketplaceService")
+if storage:GetAttribute("DeadzoneSupporterEnabled") then
+	local donation = button(panel, "Supporter Donation · loading price…", Color3.fromRGB(114, 185, 255))
+	donation.Name = "SupporterDonation"
+	local price
+	local function updateDonation()
+		if not price then
+			donation.Text = "Supporter Donation · unavailable"
+		else
+			local benefit = if player:GetAttribute("DeadzoneSupporter") then "Support again" else "Unlock a permanent blue nametag"
+			donation.Text = string.format("Supporter Donation · %d Robux\n%s", price, benefit)
+		end
+	end
+	donation.Activated:Connect(function()
+		if price then marketplace:PromptProductPurchase(player, supporter.ProductId) end
+	end)
+	player:GetAttributeChangedSignal("DeadzoneSupporter"):Connect(updateDonation)
+	task.spawn(function()
+		local ok, details = pcall(marketplace.GetProductInfo, marketplace, supporter.ProductId, Enum.InfoType.Product)
+		if ok and details.IsForSale and type(details.PriceInRobux) == "number" then price = details.PriceInRobux end
+		updateDonation()
+	end)
+end
 local bagConfig=require(storage.Shared.BackpackConfig)
 local slotLabel=button(panel,"",Color3.fromRGB(147,196,255))
 local function slotText()

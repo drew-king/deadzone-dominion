@@ -16,3 +16,5 @@
 - [Phase 15](PHASE15_EXECUTION.md)
 
 Read the latest saved Dev Hub roadmap and questions before drafting or executing a phase. Use the ledger for verified behavior and release gates.
+
+- [Public launch and Discord](PUBLIC_LAUNCH_EXECUTION.md)
