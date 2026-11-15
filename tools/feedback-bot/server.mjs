@@ -44,7 +44,7 @@ async function discordRequest(path, body) {
   if (!response.ok) throw Error("Discord API returned " + response.status);
   return response.json();
 }
-async function process(job) {
+async function processJob(job) {
   const action = JSON.parse(job.body);
   const channel = await discordRequest("/channels/" + action.threadId);
   if (channel.parent_id !== discord.forum || channel.guild_id !== discord.guild || ![10,11,12].includes(channel.type)) {
@@ -70,7 +70,7 @@ setInterval(async () => {
   const job = queued.get(Date.now());
   if (!job) return;
   busy = true;
-  try { await process(job); }
+  try { await processJob(job); }
   catch (error) {
     console.error("Feedback job", job.id, error.message);
     if (job.attempts >= 6) done.run("needs-review", job.id);
@@ -135,4 +135,6 @@ const server = createServer(async (request, response) => {
   }
 });
 server.requestTimeout = 10_000;
-server.listen(Number(process.env.PORT || 8080), "0.0.0.0");
+server.listen(Number(process.env.PORT || 8080), process.env.HOST || "0.0.0.0", () => {
+  console.info("Feedback bot listening on port " + server.address().port);
+});

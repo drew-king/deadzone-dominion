@@ -10,7 +10,8 @@ export function githubApi(config, fetcher = fetch) {
   async function request(path, token, method = "GET", body) {
     const result = await fetcher(baseUrl + path, {
       method, signal: AbortSignal.timeout(8000),
-      headers: { Authorization: "Bearer " + token, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" },
+      headers: { Authorization: "Bearer " + token, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
+        ...(body !== undefined && {"Content-Type": "application/json"}) },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
     if (!result.ok) {
