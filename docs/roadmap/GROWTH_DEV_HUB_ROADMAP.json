@@ -1,0 +1,319 @@
+{
+  "project": "Power-Up Tycoon",
+  "placeId": 96511474175721,
+  "universeId": 10776289738,
+  "phase": "Public alpha and storefront growth audit",
+  "updated": "2026-11-15",
+  "sync": "verified",
+  "sourceOfTruth": "src/",
+  "note": "Public Roblox alpha is place 121220316198110, universe 10776986725. Factory positioning is primary. Ad drafts are inactive. The live first-session route and acquisition baseline remain pending.",
+  "powers": [
+    {
+      "name": "JuggerJigg",
+      "type": "Defense",
+      "description": "Stand still and dance to build up to 60 armor. Attacking stops generation."
+    },
+    {
+      "name": "Spam-Him-Up",
+      "type": "Momentum",
+      "description": "Consecutive hits on one opponent grant a five-second speed boost. Rapid weapons require more hits."
+    },
+    {
+      "name": "Double Pop",
+      "type": "Offense",
+      "description": "Two eliminations grant up to 15 doubled damaging hits for five minutes."
+    },
+    {
+      "name": "Rising Sun",
+      "type": "Recovery",
+      "description": "Survive a lethal hit, transform, and gain brief protection. The ability has a cooldown."
+    },
+    {
+      "name": "SlurperAid",
+      "type": "Sustain",
+      "description": "Collect bubbles from your recent eliminations to heal 15% of your maximum health."
+    },
+    {
+      "name": "PlopperFizz",
+      "type": "Area control",
+      "description": "Drop from height to hit nearby opponents on landing."
+    },
+    {
+      "name": "CritShot",
+      "type": "Precision",
+      "description": "Gain 10% generator income and a 4% critical chance on qualifying shots."
+    },
+    {
+      "name": "PolarBear Kick",
+      "type": "Scavenging",
+      "description": "Pick up temporary copies of weapons your defeated opponents were holding. A copy has six rounds and you can carry two."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "P6",
+      "title": "Floor One tycoon depth",
+      "status": "in-progress",
+      "done": "At least 20 new meaningful purchases, a larger readable floor, detailed tiered droppers, moving items on a continuous conveyor, and secure Scrap sales at an end-of-line sell block; verify with repeat and multiplayer tests.",
+      "next": "Local candidate built with 25 purchases, cargo sales and a floor overlap fix. Studio acceptance and pacing checks remain open."
+    },
+    {
+      "id": "M0",
+      "title": "Project foundation",
+      "status": "done",
+      "done": "Rojo live sync verified. Initial local Git baseline f91dad7.",
+      "next": "Create the Rojo project and verify a one-file round trip between VS Code and Studio."
+    },
+    {
+      "title": "Eight-plot graybox",
+      "done": "Reactor Crown, eight routes, neutral spawn and plot claims built.",
+      "status": "in-progress",
+      "next": "Phase 1 accepted after all eight routes were timed and separate ownership was confirmed.",
+      "id": "P1"
+    },
+    {
+      "id": "M1",
+      "title": "Tycoon loop",
+      "status": "queued",
+      "done": "Players claim separate plots, earn currency, buy droppers and upgrades, and see progress persist."
+    },
+    {
+      "id": "M2",
+      "title": "Combat sandbox",
+      "status": "queued",
+      "done": "Server-validated weapons, damage, cooldowns, respawns, and a compact PvP arena work with multiple players."
+    },
+    {
+      "id": "M3",
+      "title": "Power prototypes",
+      "status": "queued",
+      "done": "Implement and tune the eight planned powers with clear UI feedback and server-side validation."
+    },
+    {
+      "id": "M4",
+      "title": "Alpha playtest",
+      "status": "queued",
+      "done": "Add to the alpha follow-up prompt: isolated persistence across restart, two-client ownership and power regression, then measure the Floor One journey with the available tester."
+    },
+    {
+      "id": "P7",
+      "title": "Floor Two and rebirth progression",
+      "status": "queued",
+      "done": "Solo Studio verified static layout, stair centerline, Prism Repeater and rebirth. Independent Phase 7 score 8.25/10. Add two-client isolation, rail-edge clearance and natural Floor Two pacing to the alpha follow-up prompt."
+    },
+    {
+      "id": "P8",
+      "title": "Release prep",
+      "status": "in-progress",
+      "next": "Phase 8 independent review scored 8.10/10, including 7 for evidence. Run multiplayer, device, persistence and performance checks before acceptance.",
+      "done": "Add to the release acceptance prompt: first-session timing, two-client regression, persistence, device accessibility, low-end performance, storefront art and rollback."
+    },
+    {
+      "id": "P9",
+      "title": "Independent upgrade trees",
+      "status": "in-progress",
+      "next": "Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.",
+      "done": "Reveal pads only when their own prerequisites are complete. Separate weapons, production and infrastructure. Keep dropper tiers sequential."
+    },
+    {
+      "id": "P10",
+      "title": "Models and visual overhaul",
+      "status": "in-progress",
+      "next": "Eight named crests, power palettes and original Roblox Part models in the local candidate. Finish custom meshes and compare performance with several active plots.",
+      "done": "Build and verify production art, textures, lighting and feedback across both floors and Reactor Crown."
+    },
+    {
+      "id": "P11",
+      "title": "Pets and balance",
+      "status": "in-progress",
+      "next": "Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.",
+      "done": "Plan Common through Mythic damage and income pets, earnable paths and a proposed Robux egg with the strongest pets. Cap or normalize competitive damage. Verify odds disclosure and player eligibility before enabling paid eggs."
+    },
+    {
+      "id": "P12",
+      "title": "Five-floor expansion and art overhaul",
+      "status": "in-progress",
+      "next": "Core progression, stair descents, gates, and the collector passed scoped Studio checks. Finish model coverage at player height, unassisted pacing and device profiling.",
+      "done": "Five buildable floors, three rebirth unlocks, clear benefits and working gear. Verify multiplayer, art, progression pacing and performance on the local candidate."
+    },
+    {
+      "id": "P13",
+      "title": "Tower, Armory and Siege",
+      "status": "in-progress",
+      "next": "First siege and armory passed scoped Studio tests. Replay later waves, repairs and concurrency.",
+      "done": "Full-footprint roofs, selectable earned weapons and plot-local siege."
+    },
+    {
+      "id": "P14",
+      "title": "Outbreak, Refinery and Interface",
+      "status": "in-progress",
+      "next": "Replay the exact local candidate, verify beginner attacks and retreat routes, refinery clearance, phone layout and Studio shop states. Use income and cosmetics for premium pets. Feature Auto-Collect.",
+      "done": "Roaming districts, functional and furnished refinery, custom GUI and staged premium shop."
+    },
+    {
+      "id": "P15",
+      "title": "Factory expansion, economy and pets",
+      "status": "in-progress",
+      "next": "Verify full conveyor routes, shared progression pricing, inventory migration, boosts, and desktop/mobile hatching. Owner targets 20 seconds on Floors One and Two, one space per potion stack or pet type, and exactly 1,000 Robux globally for the first extra slot.",
+      "done": "Extended factory lines and tiered egg progression."
+    },
+    {
+      "id": "P16",
+      "title": "Launch acceptance",
+      "status": "in-progress",
+      "next": "Complete Roblox content rating, confirm thumbnail placement, replay the exact private build, test persistence and receipt fulfillment, and connect the Discord verification and roadmap bot. Retrieve the newest Hub roadmap and questions before drafting and executing future phases.",
+      "done": "Verified release candidate and owner-approved deployment plan."
+    },
+    {
+      "status": "in-progress",
+      "id": "GRW",
+      "next": "Replay the public first session and establish live acquisition and early payoff baselines before activating ads. Follow open GRW items when their subsystem is in scope.",
+      "done": "Factory-first description, six inactive advertising creatives, research and a scored review.",
+      "title": "Factory-first storefront and ad drafts"
+    }
+  ],
+  "nextSteps": [
+    {
+      "title": "Extend your factory",
+      "detail": "Build Starter Factory, buy both conveyor extensions, construct the refinery line, and send cargo upstairs after unlocking Floor Three."
+    },
+    {
+      "title": "Hatch and manage pets",
+      "detail": "Check odds, use the first free hatch, fill two equip slots, and manage potion stacks in the backpack. Studio previews include Triple Hatch, Auto-Open, and additional equip slots."
+    },
+    {
+      "title": "Review the revised build",
+      "detail": "Complete persistence, device, performance, storefront art and rollback checks, then request a re-score."
+    },
+    {
+      "title": "Verify the public first reward",
+      "detail": "Record fresh claim, first sale, collect and first production purchase. Use GRW-01 and GRW-05 before any advertising activation."
+    }
+  ],
+  "decisions": [
+    {
+      "question": "JuggerJigg uses /e dance. Verify chat activation in Studio.",
+      "status": "implementation-pending"
+    },
+    {
+      "question": "Armor amount, duration, cap and refresh are delegated tuning decisions. Record tested settings.",
+      "status": "delegated"
+    },
+    {
+      "question": "Spam-Him-Up uses three consecutive hits. Verify eligibility and the four-second window.",
+      "status": "test-pending"
+    },
+    {
+      "question": "Double Pop spends charges on qualifying hits. Verify a miss preserves the charge.",
+      "status": "test-pending"
+    },
+    {
+      "question": "Keep Scrap, eight plots and legacy saves. Tuning is delegated. Owner chose one to two first-route threats, income and cosmetic premium pets, and Auto-Collect first.",
+      "status": "recorded"
+    },
+    {
+      "status": "recorded",
+      "question": "Storefront lead is factory and tycoon players. Include sample budgets for review only."
+    }
+  ],
+  "amendments": [],
+  "publicPlaceId": 121220316198110,
+  "publicUniverseId": 10776986725,
+  "growthBacklog": {
+    "reviewed": "2026-11-15",
+    "carryForward": "On each phase, retrieve the latest Dev Hub roadmap and questions, owner amendments, approved feedback and this backlog. When an open item matches the active subsystem, verify it still applies, helps the same player path, fits scope and is testable without material new risk. Include its ID, smallest fix and acceptance check or record the reason to keep it queued. Close after testing.",
+    "items": [
+      {
+        "id": "GRW-01",
+        "status": "pending live check",
+        "system": "First session",
+        "priority": "high",
+        "effort": "small",
+        "evidence": "Signed-in browser reached the Roblox download dialog. A running Player session was unavailable. Phase 15 tested sale and purchases in Studio.",
+        "impact": "Public join and the advertised first reward lack a current player observation.",
+        "risk": "A test on a different place or with a staged profile would misrepresent the public journey.",
+        "fix": "Run a clean eligible public player session and note elapsed claim, sale, collect and first upgrade times before changing onboarding.",
+        "trigger": "Public playtest or onboarding",
+        "acceptance": "Record build if exposed, device, player count, fresh profile and elapsed times. File blockers with their exact reproduction."
+      },
+      {
+        "id": "GRW-02",
+        "status": "hypothesis",
+        "system": "Factory prompts",
+        "priority": "high",
+        "effort": "small",
+        "evidence": "EconomyConfig branches and benefit labels, Phase 15 local cargo route. Need public observation.",
+        "impact": "A new player may miss the sell-to-wallet step or next production purchase.",
+        "risk": "Guidance may clutter the pad area or cover other input.",
+        "fix": "If reproduced, add one sale pulse pointing at collection and one contextual next-upgrade cue for the current branch.",
+        "trigger": "Factory, onboarding or HUD",
+        "acceptance": "Fresh desktop and touch players can collect the first sale and select a legal next upgrade without coaching."
+      },
+      {
+        "id": "GRW-03",
+        "status": "hypothesis",
+        "system": "Arsenal",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "CombatConfig and EconomyConfig distinguish the station gate, weapon upgrades and equipping. Earlier owner reports mention limited weapon visibility.",
+        "impact": "An Arsenal unlock can feel like a purchase with no apparent payoff.",
+        "risk": "Client text can drift from authoritative eligibility.",
+        "fix": "If reproduced, show newly earned weapon and where to equip it, with locked weapons tied to their current unlock condition.",
+        "trigger": "Arsenal or upgrade feedback",
+        "acceptance": "Buy the station and a second weapon on a normal profile, find each weapon, equip it and return after respawn."
+      },
+      {
+        "id": "GRW-04",
+        "status": "hypothesis",
+        "system": "Incubator",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "Phase 15 verified native hatch and equip locally. Public path and waiting time are unmeasured.",
+        "impact": "A pet click may promise a reward the player cannot locate early.",
+        "risk": "A new cue could imply a free or guaranteed outcome.",
+        "fix": "If needed, signpost the incubator purchase and surface the current egg cost and hatch eligibility.",
+        "trigger": "Pets, onboarding or shop",
+        "acceptance": "Unassisted fresh player can locate the incubator and explain how to reach the first hatch. Desktop and narrow-screen text remains readable."
+      },
+      {
+        "id": "GRW-05",
+        "status": "queued",
+        "system": "Analytics",
+        "priority": "high",
+        "effort": "medium",
+        "evidence": "No observed acquisition baseline and no matching analytics calls found in current src scan.",
+        "impact": "Paid clicks cannot be linked with confidence to meaningful public play.",
+        "risk": "Duplicate or out-of-order events inflate funnel numbers.",
+        "fix": "Instrument server-confirmed ordered claim, collect and production purchase. Add independent optional combat and hatch events.",
+        "trigger": "Analytics or pre-ad validation",
+        "acceptance": "Verify positive and duplicate paths with two local clients, then verify a controlled published test cohort and recording latency."
+      },
+      {
+        "id": "GRW-06",
+        "status": "queued",
+        "system": "Zombie defense",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "Owner chose one or two first-route threats and an escape route. No current public first encounter timed.",
+        "impact": "Defense-led traffic may see no threat or meet a threat before the player can react.",
+        "risk": "Increasing pressure can punish new players on their first collection route.",
+        "fix": "Measure safe first contact and add a readable warning and escape cue if needed.",
+        "trigger": "Zombie balance or defense campaign readiness",
+        "acceptance": "A fresh player can spot, evade or respond to one or two threats while returning safely to the plot."
+      },
+      {
+        "id": "GRW-07",
+        "status": "queued",
+        "system": "Storefront",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "Public listing shows Party & Casual / Childhood Game. Creator fields were disabled. Two Home thumbnails showed inactive.",
+        "impact": "Factory positioning and category can send different signals to tycoon players.",
+        "risk": "Broad setting changes can affect access and moderation. Adaptive tests need traffic.",
+        "fix": "Review eligibility for the supported tycoon classification and thumbnail experiments through Creator Dashboard when unlocked and measured traffic supports a test.",
+        "trigger": "Storefront permissions or steady organic traffic",
+        "acceptance": "Record the available genre workflow and eligible Home exposures. Check the public crop after any authorized change."
+      }
+    ]
+  }
+}

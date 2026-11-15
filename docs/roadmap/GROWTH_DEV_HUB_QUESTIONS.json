@@ -1,0 +1,29 @@
+{
+  "updated": "2026-11-15",
+  "decisions": [
+    {
+      "question": "JuggerJigg uses /e dance. Verify chat activation in Studio.",
+      "status": "implementation-pending"
+    },
+    {
+      "question": "Armor amount, duration, cap and refresh are delegated tuning decisions. Record tested settings.",
+      "status": "delegated"
+    },
+    {
+      "question": "Spam-Him-Up uses three consecutive hits. Verify eligibility and the four-second window.",
+      "status": "test-pending"
+    },
+    {
+      "question": "Double Pop spends charges on qualifying hits. Verify a miss preserves the charge.",
+      "status": "test-pending"
+    },
+    {
+      "question": "Keep Scrap, eight plots and legacy saves. Tuning is delegated. Owner chose one to two first-route threats, income and cosmetic premium pets, and Auto-Collect first.",
+      "status": "recorded"
+    },
+    {
+      "status": "recorded",
+      "question": "Storefront lead is factory and tycoon players. Include sample budgets for review only."
+    }
+  ]
+}

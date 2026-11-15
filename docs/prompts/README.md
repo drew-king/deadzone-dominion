@@ -17,4 +17,6 @@
 
 Read the latest saved Dev Hub roadmap and questions before drafting or executing a phase. Use the ledger for verified behavior and release gates.
 
+Review [the growth backlog](../roadmap/growth-backlog.json) when the active subsystem matches an open item. Include its ID, smallest fix and acceptance check if it still applies, helps the same player path and fits the phase scope. Record a concrete reason for deferral and close items only after testing.
+
 - [Public launch and Discord](PUBLIC_LAUNCH_EXECUTION.md)

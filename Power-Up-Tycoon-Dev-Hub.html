@@ -7,7 +7,7 @@
 </style>
 </head>
 <body>
-<header><div class="wrap nav"><div class="brand">POWER-UP <b>TYCOON</b> <span style="color:#718091;font-weight:600">/ DEV HUB</span></div><nav aria-label="Main navigation"><a href="#powers">Powers</a><a href="#roadmap">Roadmap</a><a href="#start">Start here</a><a href="#decisions">Open decisions</a></nav></div></header>
+<header><div class="wrap nav"><div class="brand">POWER-UP <b>TYCOON</b> <span style="color:#718091;font-weight:600">/ DEV HUB</span></div><nav aria-label="Main navigation"><a href="#powers">Powers</a><a href="#roadmap">Roadmap</a><a href="#growth">Growth</a><a href="#start">Start here</a><a href="#decisions">Open decisions</a></nav></div></header>
 <main class="wrap">
 <section class="hero"><div class="hero-grid"><div><div class="eyebrow">Roblox PvP Tycoon · Development control room</div><h1>Build your base.<br>Charge your power.<br><span style="color:var(--orange)">Own the arena.</span></h1><p>Each player grows a personal tycoon, then takes its unique power into a shared PvP fight. This hub tracks the real build from the first Rojo connection through a balanced, playable release.</p></div><aside class="statusbox"><div class="label">Current phase</div><div class="status"><span class="dot"></span><span id="phase">Loading project status…</span></div><div class="meta">Roblox place <strong id="place">—</strong></div><div class="meta">Last roadmap update <strong id="updated">—</strong></div><div class="meta" style="margin-top:8px" id="honest">—</div></aside></div></section>
 <section id="powers" class="section"><div class="section-head"><div><div class="eyebrow">Eight power plots</div><h2>Power roster</h2><p class="sub">Core abilities passed scripted two-client Studio checks. Player matches will inform tuning.</p></div></div><div class="grid3" id="powers-grid"></div></section>
@@ -15,6 +15,11 @@
 <section id="start" class="section"><div class="section-head"><div><div class="eyebrow">The next useful session</div><h2>Start here</h2><p class="sub">Play the Phase 12 candidate locally and record where the next action is unclear.</p></div></div><div class="grid3" id="steps"></div><div class="note" style="margin-top:14px"><a href="art/phase12-gate-comparison.jpg">Eight gate comparisons</a> · <a href="art/phase12-pet-silhouettes.jpg">Pet silhouettes</a> · <a href="art/phase12-boards.jpg">Leaderboard test</a></div></section>
 <section id="decisions" class="section"><div class="section-head"><div><div class="eyebrow">Design questions to settle before tuning</div><h2>Open decisions</h2><p class="sub">Capture amendments below; download the revised roadmap to make them part of the project.</p></div></div><div class="questions" id="questions"></div><form id="amend-form" class="amend"><input id="amend-input" type="text" maxlength="240" placeholder="Add a rule, feature, balance note, or command…" aria-label="New roadmap amendment"><button class="btn" type="submit">Add note</button></form><div class="amendments" id="amendments"></div><div class="actions"><button class="btn secondary" id="download">Download updated roadmap.json</button><button class="btn secondary" id="clear">Clear browser draft</button></div><p class="tiny">Notes are saved in this browser as a draft. Download the JSON and replace the repo's roadmap.json to publish the changes.</p></section>
 <section class="section"><div class="note"><strong>Studio workflow</strong> Rojo live sync was verified locally. Phase 12 gameplay is tested in Studio and persistence in the private Roblox QA place.</div></section>
+<section id="growth" class="section">
+  <div class="section-head"><div><h2>Storefront and first-session backlog</h2><p class="sub" id="growth-rule"></p></div><a href="https://www.roblox.com/games/121220316198110">Public Roblox alpha</a></div>
+  <div id="growth-items" class="roadmap"></div>
+  <button class="btn" id="growth-questions" type="button">Download questions</button>
+</section>
 </main><footer><div class="wrap">Power-Up Tycoon · private development hub · Roblox place 96511474175721 · Roadmap data is versioned with the project source.</div></footer>
 <script>
 const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -44,15 +49,28 @@ window.addEventListener('DOMContentLoaded',()=>{
   }
   list.after(container);
 });
+function renderGrowth(){
+  const growth=roadmap.growthBacklog;
+  document.querySelector('#growth-rule').textContent=growth.carryForward;
+  document.querySelector('#growth-items').innerHTML=growth.items.map(item=>'<article class="card milestone"><div class="m-id">'+escapeHtml(item.id)+'</div><div class="m-copy"><h3>'+escapeHtml(item.system)+'</h3><p>'+escapeHtml(item.fix)+'</p><p>Next phase · '+escapeHtml(item.trigger)+'</p><p>Acceptance · '+escapeHtml(item.acceptance)+'</p></div><span class="badge">'+escapeHtml(item.status)+'</span></article>').join('');
+  document.querySelector('#growth-questions').onclick=()=>{
+    const blob=new Blob([JSON.stringify({updated:roadmap.updated,decisions:roadmap.decisions},null,2)],{type:'application/json'});
+    const link=document.createElement('a');
+    link.href=URL.createObjectURL(blob);
+    link.download='questions.json';
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
+}
 async function init(){roadmap={
   "project": "Power-Up Tycoon",
   "placeId": 96511474175721,
   "universeId": 10776289738,
-  "phase": "Phase 16 — Public launch preparation",
+  "phase": "Public alpha and storefront growth audit",
   "updated": "2026-11-15",
   "sync": "verified",
   "sourceOfTruth": "src/",
-  "note": "The Roblox alpha is private. Phase 16 prepares durable progress, a repeatable Supporter product and a moderator-approved feedback pipeline. Public launch depends on content rating and launch playtests.",
+  "note": "Public Roblox alpha is place 121220316198110, universe 10776986725. Factory positioning is primary. Ad drafts are inactive. The live first-session route and acquisition baseline remain pending.",
   "powers": [
     {
       "name": "JuggerJigg",
@@ -69,11 +87,31 @@ async function init(){roadmap={
       "type": "Offense",
       "description": "Two eliminations grant up to 15 doubled damaging hits for five minutes."
     },
-    {"name":"Rising Sun","type":"Recovery","description":"Survive a lethal hit, transform, and gain brief protection. The ability has a cooldown."},
-    {"name":"SlurperAid","type":"Sustain","description":"Collect bubbles from your recent eliminations to heal 15% of your maximum health."},
-    {"name":"PlopperFizz","type":"Area control","description":"Drop from height to hit nearby opponents on landing."},
-    {"name":"CritShot","type":"Precision","description":"Gain 10% generator income and a 4% critical chance on qualifying shots."},
-    {"name":"PolarBear Kick","type":"Scavenging","description":"Pick up temporary copies of weapons your defeated opponents were holding. A copy has six rounds and you can carry two."}
+    {
+      "name": "Rising Sun",
+      "type": "Recovery",
+      "description": "Survive a lethal hit, transform, and gain brief protection. The ability has a cooldown."
+    },
+    {
+      "name": "SlurperAid",
+      "type": "Sustain",
+      "description": "Collect bubbles from your recent eliminations to heal 15% of your maximum health."
+    },
+    {
+      "name": "PlopperFizz",
+      "type": "Area control",
+      "description": "Drop from height to hit nearby opponents on landing."
+    },
+    {
+      "name": "CritShot",
+      "type": "Precision",
+      "description": "Gain 10% generator income and a 4% critical chance on qualifying shots."
+    },
+    {
+      "name": "PolarBear Kick",
+      "type": "Scavenging",
+      "description": "Pick up temporary copies of weapons your defeated opponents were holding. A copy has six rounds and you can carry two."
+    }
   ],
   "milestones": [
     {
@@ -133,16 +171,70 @@ async function init(){roadmap={
       "status": "in-progress",
       "next": "Phase 8 independent review scored 8.10/10, including 7 for evidence. Run multiplayer, device, persistence and performance checks before acceptance.",
       "done": "Add to the release acceptance prompt: first-session timing, two-client regression, persistence, device accessibility, low-end performance, storefront art and rollback."
+    },
+    {
+      "id": "P9",
+      "title": "Independent upgrade trees",
+      "status": "in-progress",
+      "next": "Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.",
+      "done": "Reveal pads only when their own prerequisites are complete. Separate weapons, production and infrastructure. Keep dropper tiers sequential."
+    },
+    {
+      "id": "P10",
+      "title": "Models and visual overhaul",
+      "status": "in-progress",
+      "next": "Eight named crests, power palettes and original Roblox Part models in the local candidate. Finish custom meshes and compare performance with several active plots.",
+      "done": "Build and verify production art, textures, lighting and feedback across both floors and Reactor Crown."
+    },
+    {
+      "id": "P11",
+      "title": "Pets and balance",
+      "status": "in-progress",
+      "next": "Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.",
+      "done": "Plan Common through Mythic damage and income pets, earnable paths and a proposed Robux egg with the strongest pets. Cap or normalize competitive damage. Verify odds disclosure and player eligibility before enabling paid eggs."
+    },
+    {
+      "id": "P12",
+      "title": "Five-floor expansion and art overhaul",
+      "status": "in-progress",
+      "next": "Core progression, stair descents, gates, and the collector passed scoped Studio checks. Finish model coverage at player height, unassisted pacing and device profiling.",
+      "done": "Five buildable floors, three rebirth unlocks, clear benefits and working gear. Verify multiplayer, art, progression pacing and performance on the local candidate."
+    },
+    {
+      "id": "P13",
+      "title": "Tower, Armory and Siege",
+      "status": "in-progress",
+      "next": "First siege and armory passed scoped Studio tests. Replay later waves, repairs and concurrency.",
+      "done": "Full-footprint roofs, selectable earned weapons and plot-local siege."
+    },
+    {
+      "id": "P14",
+      "title": "Outbreak, Refinery and Interface",
+      "status": "in-progress",
+      "next": "Replay the exact local candidate, verify beginner attacks and retreat routes, refinery clearance, phone layout and Studio shop states. Use income and cosmetics for premium pets. Feature Auto-Collect.",
+      "done": "Roaming districts, functional and furnished refinery, custom GUI and staged premium shop."
+    },
+    {
+      "id": "P15",
+      "title": "Factory expansion, economy and pets",
+      "status": "in-progress",
+      "next": "Verify full conveyor routes, shared progression pricing, inventory migration, boosts, and desktop/mobile hatching. Owner targets 20 seconds on Floors One and Two, one space per potion stack or pet type, and exactly 1,000 Robux globally for the first extra slot.",
+      "done": "Extended factory lines and tiered egg progression."
+    },
+    {
+      "id": "P16",
+      "title": "Launch acceptance",
+      "status": "in-progress",
+      "next": "Complete Roblox content rating, confirm thumbnail placement, replay the exact private build, test persistence and receipt fulfillment, and connect the Discord verification and roadmap bot. Retrieve the newest Hub roadmap and questions before drafting and executing future phases.",
+      "done": "Verified release candidate and owner-approved deployment plan."
+    },
+    {
+      "status": "in-progress",
+      "id": "GRW",
+      "next": "Replay the public first session and establish live acquisition and early payoff baselines before activating ads. Follow open GRW items when their subsystem is in scope.",
+      "done": "Factory-first description, six inactive advertising creatives, research and a scored review.",
+      "title": "Factory-first storefront and ad drafts"
     }
-    ,
-    {"id":"P9","title":"Independent upgrade trees","status":"in-progress","next":"Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.","done":"Reveal pads only when their own prerequisites are complete. Separate weapons, production and infrastructure. Keep dropper tiers sequential."},
-    {"id":"P10","title":"Models and visual overhaul","status":"in-progress","next":"Eight named crests, power palettes and original Roblox Part models in the local candidate. Finish custom meshes and compare performance with several active plots.","done":"Build and verify production art, textures, lighting and feedback across both floors and Reactor Crown."},
-    {"id":"P11","title":"Pets and balance","status":"in-progress","next":"Construction and power egg candidate built. Verify purchase visibility, daylight, button readability and themed hatching in Studio.","done":"Plan Common through Mythic damage and income pets, earnable paths and a proposed Robux egg with the strongest pets. Cap or normalize competitive damage. Verify odds disclosure and player eligibility before enabling paid eggs."},
-    {"id":"P12","title":"Five-floor expansion and art overhaul","status":"in-progress","next":"Core progression, stair descents, gates, and the collector passed scoped Studio checks. Finish model coverage at player height, unassisted pacing and device profiling.","done":"Five buildable floors, three rebirth unlocks, clear benefits and working gear. Verify multiplayer, art, progression pacing and performance on the local candidate."},
-    {"id":"P13","title":"Tower, Armory and Siege","status":"in-progress","next":"First siege and armory passed scoped Studio tests. Replay later waves, repairs and concurrency.","done":"Full-footprint roofs, selectable earned weapons and plot-local siege."},
-    {"id":"P14","title":"Outbreak, Refinery and Interface","status":"in-progress","next":"Replay the exact local candidate, verify beginner attacks and retreat routes, refinery clearance, phone layout and Studio shop states. Use income and cosmetics for premium pets. Feature Auto-Collect.","done":"Roaming districts, functional and furnished refinery, custom GUI and staged premium shop."},
-    {"id":"P15","title":"Factory expansion, economy and pets","status":"in-progress","next":"Verify full conveyor routes, shared progression pricing, inventory migration, boosts, and desktop/mobile hatching. Owner targets 20 seconds on Floors One and Two, one space per potion stack or pet type, and exactly 1,000 Robux globally for the first extra slot.","done":"Extended factory lines and tiered egg progression."},
-    {"id":"P16","title":"Launch acceptance","status":"in-progress","next":"Complete Roblox content rating, confirm thumbnail placement, replay the exact private build, test persistence and receipt fulfillment, and connect the Discord verification and roadmap bot. Retrieve the newest Hub roadmap and questions before drafting and executing future phases.","done":"Verified release candidate and owner-approved deployment plan."}
   ],
   "nextSteps": [
     {
@@ -156,6 +248,10 @@ async function init(){roadmap={
     {
       "title": "Review the revised build",
       "detail": "Complete persistence, device, performance, storefront art and rollback checks, then request a re-score."
+    },
+    {
+      "title": "Verify the public first reward",
+      "detail": "Record fresh claim, first sale, collect and first production purchase. Use GRW-01 and GRW-05 before any advertising activation."
     }
   ],
   "decisions": [
@@ -178,14 +274,117 @@ async function init(){roadmap={
     {
       "question": "Keep Scrap, eight plots and legacy saves. Tuning is delegated. Owner chose one to two first-route threats, income and cosmetic premium pets, and Auto-Collect first.",
       "status": "recorded"
+    },
+    {
+      "status": "recorded",
+      "question": "Storefront lead is factory and tycoon players. Include sample budgets for review only."
     }
   ],
-  "amendments": []
+  "amendments": [],
+  "publicPlaceId": 121220316198110,
+  "publicUniverseId": 10776986725,
+  "growthBacklog": {
+    "reviewed": "2026-11-15",
+    "carryForward": "On each phase, retrieve the latest Dev Hub roadmap and questions, owner amendments, approved feedback and this backlog. When an open item matches the active subsystem, verify it still applies, helps the same player path, fits scope and is testable without material new risk. Include its ID, smallest fix and acceptance check or record the reason to keep it queued. Close after testing.",
+    "items": [
+      {
+        "id": "GRW-01",
+        "status": "pending live check",
+        "system": "First session",
+        "priority": "high",
+        "effort": "small",
+        "evidence": "Signed-in browser reached the Roblox download dialog. A running Player session was unavailable. Phase 15 tested sale and purchases in Studio.",
+        "impact": "Public join and the advertised first reward lack a current player observation.",
+        "risk": "A test on a different place or with a staged profile would misrepresent the public journey.",
+        "fix": "Run a clean eligible public player session and note elapsed claim, sale, collect and first upgrade times before changing onboarding.",
+        "trigger": "Public playtest or onboarding",
+        "acceptance": "Record build if exposed, device, player count, fresh profile and elapsed times. File blockers with their exact reproduction."
+      },
+      {
+        "id": "GRW-02",
+        "status": "hypothesis",
+        "system": "Factory prompts",
+        "priority": "high",
+        "effort": "small",
+        "evidence": "EconomyConfig branches and benefit labels, Phase 15 local cargo route. Need public observation.",
+        "impact": "A new player may miss the sell-to-wallet step or next production purchase.",
+        "risk": "Guidance may clutter the pad area or cover other input.",
+        "fix": "If reproduced, add one sale pulse pointing at collection and one contextual next-upgrade cue for the current branch.",
+        "trigger": "Factory, onboarding or HUD",
+        "acceptance": "Fresh desktop and touch players can collect the first sale and select a legal next upgrade without coaching."
+      },
+      {
+        "id": "GRW-03",
+        "status": "hypothesis",
+        "system": "Arsenal",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "CombatConfig and EconomyConfig distinguish the station gate, weapon upgrades and equipping. Earlier owner reports mention limited weapon visibility.",
+        "impact": "An Arsenal unlock can feel like a purchase with no apparent payoff.",
+        "risk": "Client text can drift from authoritative eligibility.",
+        "fix": "If reproduced, show newly earned weapon and where to equip it, with locked weapons tied to their current unlock condition.",
+        "trigger": "Arsenal or upgrade feedback",
+        "acceptance": "Buy the station and a second weapon on a normal profile, find each weapon, equip it and return after respawn."
+      },
+      {
+        "id": "GRW-04",
+        "status": "hypothesis",
+        "system": "Incubator",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "Phase 15 verified native hatch and equip locally. Public path and waiting time are unmeasured.",
+        "impact": "A pet click may promise a reward the player cannot locate early.",
+        "risk": "A new cue could imply a free or guaranteed outcome.",
+        "fix": "If needed, signpost the incubator purchase and surface the current egg cost and hatch eligibility.",
+        "trigger": "Pets, onboarding or shop",
+        "acceptance": "Unassisted fresh player can locate the incubator and explain how to reach the first hatch. Desktop and narrow-screen text remains readable."
+      },
+      {
+        "id": "GRW-05",
+        "status": "queued",
+        "system": "Analytics",
+        "priority": "high",
+        "effort": "medium",
+        "evidence": "No observed acquisition baseline and no matching analytics calls found in current src scan.",
+        "impact": "Paid clicks cannot be linked with confidence to meaningful public play.",
+        "risk": "Duplicate or out-of-order events inflate funnel numbers.",
+        "fix": "Instrument server-confirmed ordered claim, collect and production purchase. Add independent optional combat and hatch events.",
+        "trigger": "Analytics or pre-ad validation",
+        "acceptance": "Verify positive and duplicate paths with two local clients, then verify a controlled published test cohort and recording latency."
+      },
+      {
+        "id": "GRW-06",
+        "status": "queued",
+        "system": "Zombie defense",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "Owner chose one or two first-route threats and an escape route. No current public first encounter timed.",
+        "impact": "Defense-led traffic may see no threat or meet a threat before the player can react.",
+        "risk": "Increasing pressure can punish new players on their first collection route.",
+        "fix": "Measure safe first contact and add a readable warning and escape cue if needed.",
+        "trigger": "Zombie balance or defense campaign readiness",
+        "acceptance": "A fresh player can spot, evade or respond to one or two threats while returning safely to the plot."
+      },
+      {
+        "id": "GRW-07",
+        "status": "queued",
+        "system": "Storefront",
+        "priority": "medium",
+        "effort": "small",
+        "evidence": "Public listing shows Party & Casual / Childhood Game. Creator fields were disabled. Two Home thumbnails showed inactive.",
+        "impact": "Factory positioning and category can send different signals to tycoon players.",
+        "risk": "Broad setting changes can affect access and moderation. Adaptive tests need traffic.",
+        "fix": "Review eligibility for the supported tycoon classification and thumbnail experiments through Creator Dashboard when unlocked and measured traffic supports a test.",
+        "trigger": "Storefront permissions or steady organic traffic",
+        "acceptance": "Record the available genre workflow and eligible Home exposures. Check the public crop after any authorized change."
+      }
+    ]
+  }
 }
 
 ;try{draft=JSON.parse(localStorage.getItem('put-amendments')||'[]')}catch{draft=[]}document.querySelector('#phase').textContent=roadmap.phase;document.querySelector('#place').textContent=roadmap.placeId;document.querySelector('#updated').textContent=roadmap.updated;document.querySelector('#honest').textContent=roadmap.note;document.querySelector('#powers-grid').innerHTML=roadmap.powers.map((p,i)=>`<article class="card power" style="--accent:${['#ffae57','#55d8d1','#d49aff'][i%3]};--glow:${['#ff9f43','#52d6d0','#bb83ff'][i%3]}"><span class="tag">${escapeHtml(p.type)}</span><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description)}</p></article>`).join('');document.querySelector('#milestones').innerHTML=roadmap.milestones.map(m=>`<article class="card milestone"><div class="m-id">${escapeHtml(m.id)}</div><div class="m-copy"><h3>${escapeHtml(m.title)}</h3><p>${escapeHtml(m.status==='in-progress'?m.next:m.done)}</p></div><span class="badge ${m.status==='in-progress'?'active':''}">${escapeHtml(m.status.replace('-',' '))}</span></article>`).join('');document.querySelector('#steps').innerHTML=roadmap.nextSteps.map((s,i)=>`<article class="card step"><span class="step-num">0${i+1}</span><div><h3>${escapeHtml(s.title)}</h3><p>${escapeHtml(s.detail)}</p></div></article>`).join('');document.querySelector('#questions').innerHTML=roadmap.decisions.map(q=>`<div class="question"><i></i><span>${escapeHtml(q.question)}</span></div>`).join('');renderDraft()}
 function renderDraft(){document.querySelector('#amendments').innerHTML=draft.map((a,i)=>`<div class="amendment">${escapeHtml(a)} <button aria-label="Remove note" data-i="${i}" style="float:right;background:none;border:0;color:#92a1b0;cursor:pointer">×</button></div>`).join('');document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{draft.splice(+b.dataset.i,1);saveDraft()})}
 function saveDraft(){localStorage.setItem('put-amendments',JSON.stringify(draft));renderDraft()}
-document.querySelector('#amend-form').addEventListener('submit',e=>{e.preventDefault();const input=document.querySelector('#amend-input');const v=input.value.trim();if(!v)return;draft.push(v);input.value='';saveDraft()});document.querySelector('#clear').onclick=()=>{draft=[];saveDraft()};document.querySelector('#download').onclick=()=>{const out={...roadmap,approvedFeedback,amendments:[...(roadmap.amendments||[]),...draft]};const blob=new Blob([JSON.stringify(out,null,2)+'\n'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadmap.json';a.click();URL.revokeObjectURL(a.href)};init();
+document.querySelector('#amend-form').addEventListener('submit',e=>{e.preventDefault();const input=document.querySelector('#amend-input');const v=input.value.trim();if(!v)return;draft.push(v);input.value='';saveDraft()});document.querySelector('#clear').onclick=()=>{draft=[];saveDraft()};document.querySelector('#download').onclick=()=>{const out={...roadmap,approvedFeedback,amendments:[...(roadmap.amendments||[]),...draft]};const blob=new Blob([JSON.stringify(out,null,2)+'\n'],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadmap.json';a.click();URL.revokeObjectURL(a.href)};init();renderGrowth();
 </script>
 </body></html>

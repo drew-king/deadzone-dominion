@@ -15,3 +15,5 @@ Deadzone Dominion is an eight-plot Roblox powers tycoon. Players claim a themed 
 - Refresh the Dev Hub roadmap and questions before drafting and executing each phase. Review major milestones independently. Keep production publication and real checkout behind owner approval and recorded acceptance.
 
 Detailed instructions and decisions are in the master and phase prompts. Verification scope is in the current completion ledger and playtest guide.
+
+Before drafting or running each phase, retrieve the latest saved Dev Hub roadmap and questions, owner amendments and approved player feedback. Read [the growth backlog](docs/roadmap/growth-backlog.json) for the active subsystem. Include a matching small fix with its stable ID and acceptance check when it still applies, improves the same player path and fits the current scope and test coverage. If it stays queued, record the concrete scope, dependency or regression reason. Close after verification.
